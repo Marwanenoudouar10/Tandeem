@@ -15,23 +15,28 @@ export const Modal: FC<Props> = ({title, isShown, onClose, children, width}) => 
         onClose()
     }
 
-    return isShown && (
+    return (
+      isShown && (
         <div
-            className='fixed left-0 top-0 z-40 w-full h-full flex justify-center items-center bg-black bg-opacity-40 cursor-default'
-            onClick={e => e.stopPropagation()}
+          className="fixed left-0 top-0 z-40 w-full h-full flex justify-center items-center bg-black bg-opacity-40 cursor-default pointer-events-auto"
+          onClick={onClose}
         >
-            <div className={`flex flex-col gap-5 bg-white p-6 rounded-lg shadow ${width ?? 'w-7/12'}`}>
-                <div className='flex justify-between items-center'>
-                    <h1 className='text-2xl font-medium'>{title}</h1>
-                    <button onClick={onClick}>
-                        <XMarkIcon className='w-6 h-6 text-primary'/>
-                    </button>
-                </div>
-                <hr/>
-                <div className='max-h-[80vh] overflow-y-auto px-1'>
-                    {children}
-                </div>
+          <div
+            className={`flex flex-col gap-5 bg-white p-6 rounded-lg shadow ${
+              width ?? "w-7/12"
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center">
+              <h1 className="text-2xl font-medium">{title}</h1>
+              <button onClick={onClick}>
+                <XMarkIcon className="w-6 h-6 text-primary" />
+              </button>
             </div>
+            <hr />
+            <div className="max-h-[80vh] overflow-y-auto px-1">{children}</div>
+          </div>
         </div>
-    )
+      )
+    );
 }

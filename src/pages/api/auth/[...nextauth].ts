@@ -47,4 +47,5 @@ const authOptions: AuthOptions = {
 		signOut: '/logout',
 	}
 }
+
 export default NextAuth(authOptions)
