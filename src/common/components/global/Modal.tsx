@@ -23,7 +23,7 @@ export const Modal: FC<Props> = ({title, isShown, onClose, children, width}) => 
         >
           <div
             className={`flex flex-col gap-5 bg-white p-6 rounded-lg shadow ${
-              width ?? "w-7/12"
+              width ?? "w-[95%] lg:w-7/12"
             }`}
             onClick={(e) => e.stopPropagation()}
           >
